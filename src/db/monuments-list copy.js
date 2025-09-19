@@ -1,94 +1,64 @@
-const MONUMENTS = [
-  {
-    "title": "Tour Eiffel",
-    "country": "France",
-    "city": "Paris",
-    "buildYear": 1889,
-    "picture": "https://github.com/ehformation/monumento/blob/main/images/tour-eiffel.png?raw=true",
-    "description": "Symbole emblématique de Paris, la Tour Eiffel a été construite pour l'exposition universelle de 1889.",
-    "created": new Date()
-  },
-  {
-    "title": "Statue de la Liberté",
-    "country": "États-Unis",
-    "city": "New York",
-    "buildYear": 1886,
-    "picture": "https://github.com/ehformation/monumento/blob/main/images/statue-liberte.png?raw=true",
-    "description": "Offerte par la France, cette statue est un symbole de liberté situé à l'entrée du port de New York.",
-    "created": new Date()
-  },
-  {
-    "title": "Colisée",
-    "country": "Italie",
-    "city": "Rome",
-    "buildYear": 80,
-    "picture": "https://github.com/ehformation/monumento/blob/main/images/colisee.png?raw=true",
-    "description": "Ancien amphithéâtre romain, célèbre pour ses combats de gladiateurs et son architecture impressionnante.",
-    "created": new Date()
-  },
-  {
-    "title": "Big Ben",
-    "country": "Royaume-Uni",
-    "city": "Londres",
-    "buildYear": 1859,
-    "picture": "https://github.com/ehformation/monumento/blob/main/images/bigben.png?raw=true",
-    "description": "Horloge monumentale de Londres, située au sommet de la tour Elizabeth, symbole du Royaume-Uni.",
-    "created": new Date()
-  },
-  {
-    "title": "Taj Mahal",
-    "country": "Inde",
-    "city": "Agra",
-    "buildYear": 1632,
-    "picture": "https://github.com/ehformation/monumento/blob/main/images/tajmahal.png?raw=true",
-    "description": "Mausolée en marbre blanc construit par l'empereur Shah Jahan en mémoire de son épouse Mumtaz Mahal.",
-    "created": new Date()
-  },
-  {
-    "title": "Christ Rédempteur",
-    "country": "Brésil",
-    "city": "Rio de Janeiro",
-    "buildYear": 1931,
-    "picture": "https://github.com/ehformation/monumento/blob/main/images/corcovado.png?raw=true",
-    "description": "Statue monumentale du Christ surplombant la baie de Rio, symbole du Brésil et de la foi chrétienne.",
-    "created": new Date()
-  },
-  {
-    "title": "Pyramide de Khéops",
-    "country": "Égypte",
-    "city": "Gizeh",
-    "buildYear": 2560,
-    "picture": "https://github.com/ehformation/monumento/blob/main/images/kehops.png?raw=true",
-    "description": "La plus grande des pyramides d'Égypte, construite comme tombeau pour le pharaon Khéops.",
-    "created": new Date()
-  },
-  {
-    "title": "Palais de Versailles",
-    "country": "France",
-    "city": "Versailles",
-    "buildYear": 1682,
-    "picture": "https://github.com/ehformation/monumento/blob/main/images/versaille.png?raw=true",
-    "description": "Ancienne résidence royale française, célèbre pour ses jardins, ses fontaines et la galerie des Glaces.",
-    "created": new Date()
-  },
-  {
-    "title": "Machu Picchu",
-    "country": "Pérou",
-    "city": "Cusco",
-    "buildYear": 1450,
-    "picture": "https://github.com/ehformation/monumento/blob/main/images/machupiccu.png?raw=true",
-    "description": "Ancienne cité inca perchée dans les Andes, découverte au début du XXe siècle.",
-    "created": new Date()
-  },
-  {
-    "title": "Parthénon",
-    "country": "Grèce",
-    "city": "Athènes",
-    "buildYear": 447,
-    "picture": "https://github.com/ehformation/monumento/blob/main/images/pantheon.png?raw=true",
-    "description": "Temple dédié à la déesse Athéna, construit sur l'Acropole d'Athènes, symbole de la Grèce antique.",
-    "created": new Date()
-  }
-];
-
-module.exports = MONUMENTS
+ALTER TABLE Users DROP INDEX username;
+ALTER TABLE Users DROP INDEX username_2;
+ALTER TABLE Users DROP INDEX username_3;
+ALTER TABLE Users DROP INDEX username_4;
+ALTER TABLE Users DROP INDEX username_5;
+ALTER TABLE Users DROP INDEX username_5;
+ALTER TABLE Users DROP INDEX username_6;
+ALTER TABLE Users DROP INDEX username_7;
+ALTER TABLE Users DROP INDEX username_8;
+ALTER TABLE Users DROP INDEX username_9;
+ALTER TABLE Users DROP INDEX username_10;
+ALTER TABLE Users DROP INDEX username_11;
+ALTER TABLE Users DROP INDEX username_12;
+ALTER TABLE Users DROP INDEX username_13;
+ALTER TABLE Users DROP INDEX username_14;
+ALTER TABLE Users DROP INDEX username_15;
+ALTER TABLE Users DROP INDEX username_16;
+ALTER TABLE Users DROP INDEX username_17;
+ALTER TABLE Users DROP INDEX username_18;
+ALTER TABLE Users DROP INDEX username_19;
+ALTER TABLE Users DROP INDEX username_20;
+ALTER TABLE Users DROP INDEX username_21;
+ALTER TABLE Users DROP INDEX username_22;
+ALTER TABLE Users DROP INDEX username_23;
+ALTER TABLE Users DROP INDEX username_24;
+ALTER TABLE Users DROP INDEX username_25;
+ALTER TABLE Users DROP INDEX username_26;
+ALTER TABLE Users DROP INDEX username_27;
+ALTER TABLE Users DROP INDEX username_28;
+ALTER TABLE Users DROP INDEX username_29;
+ALTER TABLE Users DROP INDEX username_30;
+ALTER TABLE Users DROP INDEX username_31;
+ALTER TABLE Users DROP INDEX username_32;
+ALTER TABLE Users DROP INDEX username_33;
+ALTER TABLE Users DROP INDEX username_34;
+ALTER TABLE Users DROP INDEX username_35;
+ALTER TABLE Users DROP INDEX username_36;
+ALTER TABLE Users DROP INDEX username_37;
+ALTER TABLE Users DROP INDEX username_38;
+ALTER TABLE Users DROP INDEX username_39;
+ALTER TABLE Users DROP INDEX username_40;
+ALTER TABLE Users DROP INDEX username_41;
+ALTER TABLE Users DROP INDEX username_42;
+ALTER TABLE Users DROP INDEX username_43;
+ALTER TABLE Users DROP INDEX username_44;
+ALTER TABLE Users DROP INDEX username_45;
+ALTER TABLE Users DROP INDEX username_46;
+ALTER TABLE Users DROP INDEX username_47;
+ALTER TABLE Users DROP INDEX username_48;
+ALTER TABLE Users DROP INDEX username_49;
+ALTER TABLE Users DROP INDEX username_50;
+ALTER TABLE Users DROP INDEX username_51;
+ALTER TABLE Users DROP INDEX username_52;
+ALTER TABLE Users DROP INDEX username_53;
+ALTER TABLE Users DROP INDEX username_54;
+ALTER TABLE Users DROP INDEX username_55;
+ALTER TABLE Users DROP INDEX username_56;
+ALTER TABLE Users DROP INDEX username_57;
+ALTER TABLE Users DROP INDEX username_58;
+ALTER TABLE Users DROP INDEX username_59;
+ALTER TABLE Users DROP INDEX username_60;
+ALTER TABLE Users DROP INDEX username_61;
+ALTER TABLE Users DROP INDEX username_62;
+ALTER TABLE Users DROP INDEX username_63;
