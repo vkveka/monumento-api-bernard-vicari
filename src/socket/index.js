@@ -4,9 +4,10 @@ const publicKey = fs.readFileSync('./src/auth/jwtRS256.key.pub');
 const { Server } = require('socket.io');
 
 let messages = {};
+let io;
 
 function setupSocketServer(server) {
-    const io = new Server(server, {
+    io = new Server(server, {
         cors: {
             origin: "*",
             methods: ["GET", "POST"]
@@ -25,34 +26,34 @@ function setupSocketServer(server) {
             }
             socket.user = decoded;
             next();
-        }); 
+        });
     });
 
     io.on('connection', (socket) => {
         console.log('Un utilisateur est connecté');
-    
-        socket.on("joinMonument", ({monumentId, role}) => {
+
+        socket.on("joinMonument", ({ monumentId, role }) => {
             socket.join(`monument_${monumentId}`);
             console.log(`${socket.user.userName} a rejoint la salle monument_${monumentId} en tant que ${role}`);
-    
-            if(!messages[monumentId]) 
+
+            if (!messages[monumentId])
                 messages[monumentId] = [];
-    
+
             socket.emit("chatHistory", messages[monumentId]);
         });
-    
-        socket.on("sendMessage", ({monumentId, role, message}) => {
+
+        socket.on("sendMessage", ({ monumentId, role, message }) => {
             const msg = {
                 user: socket.user.userName,
                 role,
                 message,
                 date: new Date()
             };
-    
+
             messages[monumentId].push(msg);
             io.to(`monument_${monumentId}`).emit("newMessage", msg);
         });
-        
+
         socket.on('disconnect', () => {
             console.log('Un utilisateur est déconnecté');
         });
@@ -61,4 +62,11 @@ function setupSocketServer(server) {
     return io;
 }
 
-module.exports = setupSocketServer;
+function getIo() {
+    if (!io) {
+        throw new Error("Socket.io n'est pas encore initialisé !");
+    }
+    return io;
+}
+
+module.exports = { setupSocketServer, getIo };

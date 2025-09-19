@@ -4,18 +4,18 @@ const morgan = require('morgan')
 const sequelize = require('./src/db/sequelize')
 const auth = require('./src/auth/auth')
 const http = require('http');
-const setupSocketServer = require('./src/socket');
+const { setupSocketServer } = require('./src/socket');
 
 
 const app = express()
 const server = http.createServer(app);
 setupSocketServer(server);
 
-function nightBlocker (req, res, next){
+function nightBlocker(req, res, next) {
     const hour = new Date().getHours();
-    if(hour >= 0 && hour < 6 ){
-        res.status(503).json({message: "Le serveur est en cours de maintenance", data: null})
-    }else{
+    if (hour >= 0 && hour < 6) {
+        res.status(503).json({ message: "Le serveur est en cours de maintenance", data: null })
+    } else {
         next();
     }
 }
@@ -29,7 +29,7 @@ app
     .use(favicon(__dirname + '/favicon.ico'))
     .use(morgan("dev"))
     .use(auth)
-    
+
 require('./src/docs/swagger')(app)
 
 app.get('/', (req, res) => {
@@ -54,6 +54,11 @@ require('./src/routes/deleteAnecdote.route')(app)
 require('./src/routes/login.route')(app)
 require('./src/routes/register.route')(app)
 require('./src/routes/refreshToken.route')(app)
+
+// Favorites routes
+require('./src/routes/createFavorite.route')(app)
+require('./src/routes/deleteFavorite.route')(app)
+require('./src/routes/findFavorites.route')(app)
 
 app.use((req, res) => {
     const url = req.originalUrl

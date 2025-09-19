@@ -8,7 +8,7 @@ const rateLimit = require('express-rate-limit');
 
 const loginLimiter = rateLimit({
     windowMs: 15 * 60 * 1000,
-    max: 5, 
+    max: 50, 
     message: {
         message: "Trop de tentatives de connexion. Veuillez réessayer plus tard.",
         data: null
@@ -63,13 +63,13 @@ module.exports = (app) => {
             }
 
             const accessToken = jwt.sign(
-                { userName: user.username }, 
+                { userId: user.id, userName: user.username }, 
                 privateKey, 
                 { algorithm: 'RS256', expiresIn: '30m' }
             );
 
             const refreshToken = jwt.sign(
-                { userName: user.username }, 
+                { userId: user.id, userName: user.username }, 
                 privateKey, 
                 { algorithm: 'RS256', expiresIn: '7d' }
             );
@@ -87,6 +87,7 @@ module.exports = (app) => {
             });
 
         } catch (error) {
+            console.error(error); 
             message = 'Erreur lors de l\'authentification'
             return handleError(res, error, message);
         }

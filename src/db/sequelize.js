@@ -4,10 +4,10 @@ let monuments = require('./monuments-list')
 const sequelize = new Sequelize(
     'monumento',
     'root',
-    'root',
+    '',
     {
         host: 'localhost',
-        port : 8889,
+        port : 3306,
         dialect: 'mysql',
         logging: true
     }
@@ -25,12 +25,18 @@ sequelize
 const MonumentModel = require('../models/monument')(sequelize, DataTypes);
 const UserModel = require('../models/user')(sequelize, DataTypes);
 const AnecdoteModel = require('../models/anecdote')(sequelize, DataTypes);
+const FavoriteModel = require('../models/favorite')(sequelize, DataTypes);
+
+UserModel.hasMany(FavoriteModel, { foreignKey: 'userId', as: 'favorite' });
+FavoriteModel.belongsTo(UserModel, { foreignKey: 'userId', as: 'user' });
+MonumentModel.hasMany(FavoriteModel, { foreignKey: 'monumentId', as: 'favorite' });
+FavoriteModel.belongsTo(MonumentModel, { foreignKey: 'monumentId', as: 'monument' });
 
 MonumentModel.hasMany(AnecdoteModel, { foreignKey: 'monument_id', as: 'anecdotes' }); 
 AnecdoteModel.belongsTo(MonumentModel, { foreignKey: 'monument_id', as: 'monument' });
 
 const initDb = async () => {
-    return sequelize.sync()
+    return sequelize.sync({ alter: true })
             .then(() => {
         
                 // monuments.forEach(async (monument) => {
@@ -55,5 +61,6 @@ module.exports = {
     initDb,
     MonumentModel,
     UserModel,
-    AnecdoteModel
+    AnecdoteModel,
+    FavoriteModel
 };
