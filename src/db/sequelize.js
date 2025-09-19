@@ -4,10 +4,12 @@ let monuments = require('./monuments-list')
 const sequelize = new Sequelize(
     'monumento',
     'root',
-    '',
+    'root',
+    // '',
     {
         host: 'localhost',
-        port : 3306,
+        port : 8889,
+        // port : 3306,
         dialect: 'mysql',
         logging: true
     }
